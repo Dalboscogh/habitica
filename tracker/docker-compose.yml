@@ -1,0 +1,19 @@
+services:
+  watcher:
+    build: .
+    container_name: habitica-tracker
+    restart: unless-stopped
+    networks: [habitica]
+    ports:
+      - "127.0.0.1:3011:3011"
+    environment:
+      MONGO_URL: "mongodb://mongo:27017/?replicaSet=rs&directConnection=true"
+      SRC_DB: habitrpg
+      DST_DB: habitrpg_history
+      HTTP_PORT: "3011"
+    command: ["bun", "run", "src/index.ts", "watch"]
+
+networks:
+  habitica:
+    external: true
+    name: habitica_habitica

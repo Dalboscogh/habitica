@@ -1,0 +1,13 @@
+{
+  "name": "habitica-tracker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "watch": "bun run src/index.ts watch",
+    "snapshot": "bun run src/index.ts snapshot"
+  },
+  "dependencies": {
+    "mongodb": "^6.10.0"
+  }
+}
